@@ -25,10 +25,11 @@ const ItemList = ({ category }) => {
       setLoading(true);
       try {
         const query = category === "food" ? "food" : `${category}`;
+        var response;
 
         switch (query) {
           case "food":
-            var response = await axios.get(
+            response = await axios.get(
               "https://apis.data.go.kr/6260000/FoodService/getFoodKr?serviceKey=ALRX9GpugtvHxcIO%2FiPg1vXIQKi0E6Kk1ns4imt8BLTgdvSlH%2FAKv%2BA1GcGUQgzuzqM3Uv1ZGgpG5erOTDcYRQ%3D%3D&numOfRows=100&pageNo=1&resultType=json"
             );
 
@@ -37,7 +38,7 @@ const ItemList = ({ category }) => {
             break;
 
           case "walking":
-            var response = await axios.get(
+            response = await axios.get(
               "https://apis.data.go.kr/6260000/WalkingService/getWalkingKr?serviceKey=ALRX9GpugtvHxcIO%2FiPg1vXIQKi0E6Kk1ns4imt8BLTgdvSlH%2FAKv%2BA1GcGUQgzuzqM3Uv1ZGgpG5erOTDcYRQ%3D%3D&pageNo=1&numOfRows=100&resultType=json"
             );
 
